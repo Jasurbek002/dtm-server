@@ -24,6 +24,31 @@ const LOGIN = async (req,res) =>{
 }
 
 
+const REGISTER = async (req,res) =>{
+    try {
+        let user = await model.REGISTER(req.body)
+        if(user){
+            res.status(201).json({
+                status:201,
+                message:'your are registred',
+                token:sign(user.user_id)
+            })
+        }else{
+            res.status(403).json({
+                status:403,
+                message:'folbiddin ascsses',
+                token:null
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+
 module.exports = {
-    LOGIN
+    LOGIN,
+    REGISTER
 }
