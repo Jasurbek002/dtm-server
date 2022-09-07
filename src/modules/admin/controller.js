@@ -25,7 +25,7 @@ const LOGIN = async (req,res) =>{
 
 const REGISTER = async (req,res) =>{
     try {
-         let admin = await model.REGISTER(req.body)
+         let admin = await model.REGISTER(req.body,req.headers)
          if(admin){
             res.status(200).json({
                 status:200,

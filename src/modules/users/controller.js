@@ -5,6 +5,7 @@ const {secretkey} = require('../../config.js')
 const LOGIN = async (req,res) =>{
     try {
         let user = await model.LOGIN(req.body)
+        console.log(req.body)
         if(user){
             res.status(200).json({
                 status:200,
